@@ -42,10 +42,14 @@ const healthSchema = new mongoose.Schema({
         max:10
     },
     SystolicPressure:{
-        type:Number
+        type:Number,
+        min:60,
+        max:299
     },
     DiastolicPressure:{
-        type:Number
+        type:Number,
+        min:40,
+        max:199
     },
     bloodPressure:{
         type:Number

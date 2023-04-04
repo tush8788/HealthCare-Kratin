@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <img src="/img/Systolic_vs_Diastolic.jpg" width="100%" height="100%" alt="notFound">
+        </div>
+        <div class="col-6">
+            <div class="blood-form-container">
+                <form action="" id="bloodPressure" method="get">
+                    <table border="2">
+                        <tr>
+                            <th>
+                                <label for="">Systolic blood pressure:</label>
+                            </th>
+                            <td>
+                                <input type="number" name="systolic" min="10" max="250" required>
+                            </td>
+                            <td>
+                                <p>mmHg</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for=""> Diastolic blood pressure:</label> 
+                            </th>
+                            <td>
+                                <input type="number" name="diastolic" min="10" max="250" required>
+                            </td>
+                            <td>
+                                <p>mmHg</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td rowspan="3"> 
+                                <button class="btn" type="submit">Submit</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                <!-- blood presher -->
+                <div id="result-list">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/bloodPressureCal.js"></script>
