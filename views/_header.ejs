@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><b>HelthCare</b></a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+        <div class="d-flex">
+            <%if(locals.user){%>
+                <a href="/signout" class="btn btn-outline-primary">SignOut</a> &nbsp;
+            <%}else{%>
+                <a href="/admin/signin" class="btn btn-outline-primary">Admin SignIn</a> &nbsp;
+                <a href="/user/signin" class="btn btn-outline-success">User SignIn</a>&nbsp;
+            <%}%>
+        </div>
+      </div>
+    </div>
+  </nav>
