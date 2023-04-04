@@ -5,7 +5,9 @@ const homeController = require('../controller/home_controller');
 router.get('/',homeController.home);
 
 router.get('/signout',homeController.signout);
-
-router.use('/admin',require('./Admin/index'));
+// admin
+router.use('/admin',require('./admin'));
+// user
+router.use('/user',require('./user'));
 
 module.exports=router;

@@ -17,7 +17,7 @@ module.exports.signInPageAdmin=function(req,res){
 }
 
 //admin sign up page
-module.exports.signUnPageAdmin=function(req,res){
+module.exports.signUpPageAdmin=function(req,res){
     return res.render('signup',{
         title:"AdminSignUp",
         isAdmin:true,
@@ -35,7 +35,7 @@ module.exports.signInPageUser=function(req,res){
 }
 
 //user sign up page
-module.exports.signUnPageUser=function(req,res){
+module.exports.signUpPageUser=function(req,res){
     return res.render('signup',{
         title:"UserSignUp",
         isAdmin:false,
@@ -50,7 +50,7 @@ module.exports.create=async function(req,res){
 
         if(!user){
             user = userDB.create(req.body);
-            if(req.body.isAdmin){
+            if(req.body.isAdmin=="true"){
                 return res.redirect('/admin/signin');
             }
             else{
@@ -59,8 +59,7 @@ module.exports.create=async function(req,res){
         }
 
         console.log("user already exist");
-
-        if(req.body.isAdmin){
+        if(req.body.isAdmin=="true"){
             return res.redirect('/admin/signin');
         }
         else{
@@ -75,11 +74,11 @@ module.exports.create=async function(req,res){
 
 //create session of  admin and user
 module.exports.createSession=function(req,res){
-    if(req.body.isAdmin){
+    if(req.body.isAdmin=="true"){
         return res.redirect('/admin/dashboard');
     }
     else{
-        return res.redirect('/admin/dashboard');
+        return res.redirect('/user/dashboard');
     }
 }
 

@@ -8,12 +8,15 @@ passport.use(new localStrategy({
 },async function(req,email,password,done){
     try{
         let user;
-        if(req.body.isAdmin){
+        if(req.body.isAdmin=='true'){
             user=await UserDB.findOne({email:email,isAdmin:true});
-        }else{
+        }
+        else if(req.body.isAdmin=="false"){
+
             user=await UserDB.findOne({email:email,isAdmin:false});
         }
 
+        
         if(!user || password != user.password){
             console.log("Invaild email or password");
             return done(null,false);
@@ -57,4 +60,20 @@ passport.setAuthenticatedUser=function(req,res,next){
         res.locals.user = req.user;
     }
     return next();
+}
+
+//addisional checking user is admin or not 
+passport.isAdminOrNot=function(req,res,next){
+    if(req.user.isAdmin==true){
+        return next();
+    }
+    return res.redirect('/signout');
+}
+
+//addisional checking req user is user or not 
+passport.isUserOrNot=function(req,res,next){
+    if(req.user.isAdmin==false){
+        return next();
+    }
+    return res.redirect('/signout');
 }
