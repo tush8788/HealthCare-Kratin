@@ -1,4 +1,6 @@
 module.exports.dashboard=function(req,res){
-    res.end("<h2>User Dashboard</h2>")
+    return res.render('./user/dashboard',{
+        title:"Dashboard"
+    })
 }
 
