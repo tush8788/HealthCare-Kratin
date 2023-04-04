@@ -82,3 +82,13 @@ module.exports.createSession=function(req,res){
         return res.redirect('/admin/dashboard');
     }
 }
+
+//signout
+module.exports.signout = function(req,res){
+    req.logout((err)=>{
+        if(err){
+            console.log(err);
+        }
+        return res.redirect('/');
+    })
+}
