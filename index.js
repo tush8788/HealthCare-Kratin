@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static('./assets'));
 
 app.use(expressSession({
-    name:Helthcare,
+    name:"Helthcare",
     secret:"any_key",
     resave:false,
     saveUninitialized:false,
@@ -36,6 +36,10 @@ app.use(expressSession({
         console.log(err || "connect");
     })
 }))
+
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(passport.setAuthenticatedUser);
 
 app.use('/',require('./routes/index'));
 

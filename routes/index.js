@@ -4,4 +4,6 @@ const homeController = require('../controller/home_controller');
 
 router.get('/',homeController.home);
 
+router.use('/admin',require('./Admin/index'));
+
 module.exports=router;

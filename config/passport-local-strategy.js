@@ -8,7 +8,7 @@ passport.use(new localStrategy({
 },async function(req,email,password,done){
     try{
         let user;
-        if(req.body.isAdmin==true){
+        if(req.body.isAdmin){
             user=await UserDB.findOne({email:email,isAdmin:true});
         }else{
             user=await UserDB.findOne({email:email,isAdmin:false});
@@ -44,3 +44,17 @@ passport.deserializeUser( async (id,cb)=>{
         return cb(err);
     }
 })
+
+passport.checkAuthentication=function(req,res,next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    return res.redirect('/');
+}
+
+passport.setAuthenticatedUser=function(req,res,next){
+    if(req.isAuthenticated()){
+        res.locals.user = req.user;
+    }
+    return next();
+}
