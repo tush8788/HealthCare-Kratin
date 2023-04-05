@@ -1,10 +1,22 @@
 const UserDB = require('../model/user');
 const HealthDB = require('../model/healthRecord');
+const scoreFind = require('../score/chechScore');
 
 // dashboard
-module.exports.dashboard=function(req,res){
+module.exports.dashboard= async function(req,res){
+    let score=0;
+    if(req.user.medicalHistroy==true){ 
+        let healthR = await HealthDB.findOne({user:req.user.id});
+        if(healthR){
+           score=scoreFind.checkScore(healthR);
+        //    console.log(score);
+        }
+    }
+    // console.log(scoreFind.checkScore(12));
+
     return res.render('./user/dashboard',{
-        title:"Dashboard"
+        title:"Dashboard",
+        healthScore:score
     })
 }
 

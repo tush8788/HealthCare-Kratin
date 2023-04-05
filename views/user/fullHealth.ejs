@@ -80,23 +80,23 @@
                           </div>
                         <div class="col-6">
                             <label for="customRange2" class="form-label">Alcohol Rating</label>
-                            <input type="range" name="alcohol" value="<%=healthData.alkohol%>" oninput="this.nextElementSibling.value = this.value" class="form-range" min="0" max="10" id="customRange2">
-                            <output>0</output>
+                            <input type="range" name="alcohol" value="<%=healthData.alcohol%>" oninput="this.nextElementSibling.value = this.value" class="form-range" min="0" max="10" id="customRange2">
+                            <output><%=healthData.alcohol%></output>
                         </div>
                         <div class="col-6">
                             <label for="customRange2" class="form-label">Smoking Rating</label>
                             <input type="range" value="<%=healthData.smoking%>" name="smoking" oninput="this.nextElementSibling.value = this.value" class="form-range" min="0" max="10" id="customRange2">
-                            <output>0</output>
+                            <output><%=healthData.smoking%></output>
                        </div>
                        <div class="col-6">
                         <label for="customRange2" class="form-label">Exercise Rating</label>
                         <input type="range" name="exercise" value="<%=healthData.smoking%>" oninput="this.nextElementSibling.value = this.value" class="form-range" min="0" max="10" id="customRange2">
-                        <output>0</output>
+                        <output><%=healthData.smoking%></output>
                     </div>
                     <div class="col-6">
                         <label for="customRange2" class="form-label">Sleep Rating</label>
-                        <input type="range" value="0" name="sleep" value="<%=healthData.sleep%>" oninput="this.nextElementSibling.value = this.value" class="form-range" min="0" max="10" id="customRange2">
-                        <output>0</output>
+                        <input type="range" name="sleep" value="<%=healthData.sleep%>" oninput="this.nextElementSibling.value = this.value" class="form-range" min="0" max="10" id="customRange2">
+                        <output><%=healthData.sleep%></output>
                    </div>
                         <div class="col-md-6">
                           <label for="inputCity" class="form-label">Height</label>
