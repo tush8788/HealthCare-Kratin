@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const healthSchema = new mongoose.Schema({
-    Name:{
+    name:{
         type:String,
     },
     gender:{
@@ -12,7 +12,7 @@ const healthSchema = new mongoose.Schema({
         type:Date,
         default:new Date()
     },
-    alkohol:{
+    alcohol:{
         type:Number,
     },
     smoking:{
@@ -41,18 +41,19 @@ const healthSchema = new mongoose.Schema({
         min:0,
         max:10
     },
-    SystolicPressure:{
+    systolicPressure:{
         type:Number,
         min:60,
         max:299
     },
-    DiastolicPressure:{
+    diastolicPressure:{
         type:Number,
         min:40,
         max:199
     },
-    bloodPressure:{
-        type:Number
+    user:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'User'
     }
 
 });

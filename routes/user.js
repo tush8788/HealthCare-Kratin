@@ -19,4 +19,10 @@ router.get('/dashboard',passport.checkAuthentication,passport.isUserOrNot,userCo
 router.get('/bloodPressure',passport.checkAuthentication,passport.isUserOrNot,userController.bloodPressurePage)
 //BMI
 router.get('/BMICalculator',passport.checkAuthentication,passport.isUserOrNot,userController.BMI);
+//full health data taking page
+router.get('/takeHealthData',passport.checkAuthentication,passport.isUserOrNot,userController.fullHealthData);
+//create Health Record
+router.post('/createHealthRecord',passport.checkAuthentication,passport.isUserOrNot,userController.createHealthRecord);
+//Update Health Record
+router.post('/updateHealthRecord/:id',passport.checkAuthentication,passport.isUserOrNot,userController.updateHealthRecord);
 module.exports=router;
