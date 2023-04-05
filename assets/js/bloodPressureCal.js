@@ -5,9 +5,9 @@ $('#bloodPressure').submit((e) => {
     let arr = $('#bloodPressure').serializeArray();
     let newArry=[];
     // let sum = 0;
-    // arr.forEach(element => {
-    //     sum+=newArry.push(parseInt(element.value));
-    // });
+    arr.forEach(element => {
+        newArry.push(parseInt(element.value));
+    });
 
     // BP = (sum / 3)
 
@@ -16,10 +16,10 @@ $('#bloodPressure').submit((e) => {
     if (newArry[0]<90 && newArry[1]<60) {
         classification = "Low blood pressure";
     }
-    else if (newArry[0]<=120 && newArry[1]<=80) {
+    else if ((newArry[0]>=90 && newArry[0]<=120) && (newArry[1]>=60 && newArry[1]<=80)) {
         classification = "Normal blood pressure";
     }
-    else if ((newArry[0]>=120 && newArry[0]<=129) && newArry[1]<=80) {
+    else if ((newArry[0]>120 && newArry[0]<=129) && newArry[1]<=80) {
         classification = "Prehypertension";
     }
     else if ((newArry[0]>=130 && newArry[0]<=139) && (newArry[1]>=80 && newArry[1]<=89) ) {
