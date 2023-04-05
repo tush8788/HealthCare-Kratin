@@ -17,4 +17,6 @@ router.post('/create-session',passport.authenticate('local',{failureRedirect:"/u
 router.get('/dashboard',passport.checkAuthentication,passport.isUserOrNot,userController.dashboard);
 //blood 
 router.get('/bloodPressure',passport.checkAuthentication,passport.isUserOrNot,userController.bloodPressurePage)
+//BMI
+router.get('/BMICalculator',passport.checkAuthentication,passport.isUserOrNot,userController.BMI);
 module.exports=router;

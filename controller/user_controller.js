@@ -5,9 +5,16 @@ module.exports.dashboard=function(req,res){
     })
 }
 
-//blood 
+//blood page
 module.exports.bloodPressurePage=function(req,res){
     return res.render('./user/bloodPressure',{
         title:"Blood Pressure"
     });
+}
+
+//BMI page
+module.exports.BMI = function(req,res){
+    return res.render('./user/BMICalculetor',{
+        title:'BMI'
+    })
 }
