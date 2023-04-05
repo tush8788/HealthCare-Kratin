@@ -70,12 +70,12 @@ module.exports.checkScore = function (healthR) {
     } else {
         healthLevel = "poor";
     }
-
+    // console.log(bmi)
     // Output the results
     // console.log(`Overall Health Score: ${overallScore}`);
     // console.log(`Health Level: ${healthLevel}`);
     // return {score:overallScore,level:healthLevel};
-    return overallScore;
+    return {overallScore,bmi};
 }
 
 

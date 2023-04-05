@@ -43,7 +43,7 @@ window.feed = function(callback) {
     },
        scaleR:{
         aperture:180,
-        minValue:1,
+        minValue:0,
         maxValue:10,
         step:1,
         center:{
@@ -56,13 +56,13 @@ window.feed = function(callback) {
           offsetR:0,
           rules:[
             {
-              rule:'%i == 9',
+              rule:'%i == 10',
               offsetX:15
             }
           ]
         },
         // labels:['300','','','','','','580','640','700','750','','850'],
-        labels:['1','2','3','4','5','6','7','8','9','10'],
+        labels:['0','1','2','3','4','5','6','7','8','9','10'],
         ring:{
           size:50,
           rules:[
@@ -93,8 +93,9 @@ window.feed = function(callback) {
         interval:1500,
         resetTimeout:1000
     },
+    
       series : [
-          {
+          { 
               values : [parseFloat($('#healthScore').text()).toFixed(2)*10], // starting value
               backgroundColor:'black',
           indicator:[10,10,10,10,0.75],
@@ -107,7 +108,7 @@ window.feed = function(callback) {
           }
       ]
   };
-  
+  console.log($('#healthScore').text());
   zingchart.render({ 
       id : 'myChart', 
       data : myConfig, 

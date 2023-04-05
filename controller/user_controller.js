@@ -4,11 +4,12 @@ const scoreFind = require('../score/chechScore');
 
 // dashboard
 module.exports.dashboard= async function(req,res){
-    let score=0;
+    let score={overallScore:0,bmi:0};
     if(req.user.medicalHistroy==true){ 
         let healthR = await HealthDB.findOne({user:req.user.id});
         if(healthR){
            score=scoreFind.checkScore(healthR);
+
         //    console.log(score);
         }
     }
@@ -16,7 +17,8 @@ module.exports.dashboard= async function(req,res){
 
     return res.render('./user/dashboard',{
         title:"Dashboard",
-        healthScore:score
+        healthScore:score.overallScore,
+        BMI:score.bmi
     })
 }
 
