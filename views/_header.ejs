@@ -3,17 +3,23 @@
       <a class="navbar-brand" href="/"><b>Health</b></a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
+            <% if(locals.user){%>
+              <li class="nav-item">
+                <%if(locals.user.isAdmin==true){%>
+                  <a class="nav-link active" aria-current="page" href="/admin/dashboard">Home</a>
+                <%}else{%>
+                  <a class="nav-link active" aria-current="page" href="/user/dashboard">Home</a>  
+                <%}%>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li>
+            <%}%>
           </ul>
         <div class="d-flex">
             <%if(locals.user){%>

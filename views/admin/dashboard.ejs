@@ -1,0 +1,76 @@
+<h2>dashboard</h2>
+
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-6">
+
+        </div>
+        <div class="col-6">
+            <a href="/user/bloodPressure" class="btn btn-outline-warning">Blood Pressure</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+
+        </div>
+        <div class="col-6">
+
+        </div>
+    </div>
+</div> -->
+
+<!-- <canvas id="myChart" style="width:100%;max-width:700px"></canvas> -->
+
+<!-- <script>
+
+const metrics = [
+  { name: "BMI", weight: 0.4 },
+  { name: "Blood Pressure", weight: 0.3 },
+  { name: "Physical Activity", weight: 0.2 },
+  { name: "Sleep Quality", weight: 0.1 }
+];
+
+// Define the data for each metric
+const data = {
+  BMI: 25,
+  systolicBP: 120,
+  diastolicBP: 80,
+  physicalActivity: 30,
+  sleepQuality: 7
+};
+
+// Normalize the data for each metric
+const normalizedData = {
+  BMI: (data.BMI - 18) / (40 - 18),
+  bloodPressure: (data.systolicBP + data.diastolicBP) / 2 / 200,
+  physicalActivity: data.physicalActivity / 60,
+  sleepQuality: data.sleepQuality / 10
+};
+
+// Calculate the score for each metric
+const scores = metrics.map(metric => {
+  const normalizedValue = normalizedData[metric.name];
+  const score = normalizedValue * metric.weight;
+  return score;
+});
+
+// Sum the scores to calculate the overall health score
+const overallScore = scores.reduce((total, score) => total + score, 0);
+
+// Assign a health level based on the overall score
+let healthLevel;
+if (overallScore >= 0.8) {
+  healthLevel = "excellent";
+} else if (overallScore >= 0.6) {
+  healthLevel = "good";
+} else if (overallScore >= 0.4) {
+  healthLevel = "fair";
+} else {
+  healthLevel = "poor";
+}
+
+// Output the results
+console.log(`Overall Health Score: ${overallScore}`);
+console.log(`Health Level: ${healthLevel}`);
+</script> -->
+
