@@ -14,4 +14,6 @@ router.post('/createSession',passport.authenticate('local',{failureRedirect:"/ad
 
 router.get('/dashboard',passport.checkAuthentication,passport.isAdminOrNot,adminController.dashboard);
 
+//delete user
+router.get('/userDelete/:id',passport.checkAuthentication,passport.isAdminOrNot,adminController.deleteUser);
 module.exports = router;
