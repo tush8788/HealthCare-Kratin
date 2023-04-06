@@ -124,11 +124,10 @@ module.exports.BMICal=function(req,res){
 }
 
 //blood pressure Calculetor
-
 module.exports.bloodCal=function(req,res){
-    console.log(req.body);
+    // console.log(req.body);
     let BloodPressure = BloodPressureCalculator.BloodPressure(req.body.systolic,req.body.diastolic);
-    console.log(BloodPressure);
+    // console.log(BloodPressure);
     if(req.xhr){
         return res.status(200).json({
             BloodPressure:BloodPressure
