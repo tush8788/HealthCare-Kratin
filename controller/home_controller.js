@@ -64,6 +64,11 @@ module.exports.signUpPageUser=function(req,res){
 //create user and admin
 module.exports.create=async function(req,res){
     try{
+        if(req.body.password != req.body.confromPassword){
+            req.flash('error',"Password and Confirm Password not match");
+            return res.redirect('back');
+        }
+
         let user = await userDB.findOne({email:req.body.email});
 
         if(!user){
