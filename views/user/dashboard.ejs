@@ -8,7 +8,7 @@
       </div>
       
     </div>
-    <div class="col-6">
+    <div class="col-6" onload="chart()">
       <div id='myBMI'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a>
         <center><h3>BMI Score</h3></center>
       </div>
@@ -53,3 +53,8 @@
 <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
 <script src="/js/userHealthScoreChart.js"></script>
 <script src="/js/BMICalculator.js"></script>
+
+<script>
+  BMIChart(<%=BMI%>);
+  userHealthChart(<%=healthScore%>);
+</script>

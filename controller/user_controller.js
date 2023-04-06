@@ -5,6 +5,7 @@ const FullHealthScore = require('../score/FullHealthScore');
 // dashboard
 module.exports.dashboard= async function(req,res){
     let score={overallScore:0,bmi:0};
+    
     if(req.user.medicalHistroy==true){ 
         let healthR = await HealthDB.findOne({user:req.user.id});
         if(healthR){
