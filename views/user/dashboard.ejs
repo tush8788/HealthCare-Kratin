@@ -1,52 +1,64 @@
 <link rel="stylesheet" href="/css/chart.css">
+<link rel="stylesheet" href="/css/userDashboard.css">
 
 <div class="container">
   <div class="row">
     <div class="col-6">
-      <div id='myChart'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a>
-        <center><h3>Health Score</h3></center>
+      <div class="chart-container">
+        <div id='myChart'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a>
+          <center>
+            <h3><b>Health Score</b></h3>
+          </center>
+        </div>
       </div>
     </div>
     <div class="col-6">
-      <div id='myBMI'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a>
-        <center><h3>BMI Score</h3></center>
+      <div class="chart-container">
+        <div id='myBMI'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a>
+          <center>
+            <h3><b>BMI Score</b></h3>
+          </center>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-6">
+      <div class="calcuteors">
+        <h4>Blood Pressure Report</h4>
+        <img src="https://cdn-icons-png.flaticon.com/256/3063/3063051.png" alt=""><br>
+        <h4 style="color:fuchsia" ><b><%=BloodReport%></b></h4>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="calcuteors">
+        <h4>BMI Calculator</h4>
+        <img src="https://cdn-icons-png.flaticon.com/256/10008/10008845.png" alt=""><br>
+        <a href="/user/BMICalculator" style="color:white" class="btn btn-dark btn-outline-warning">BMI Calculator</a>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="calcuteors">
+        <h4>Blood Pressure Calculator</h4>
+        <img src="https://cdn-icons-png.flaticon.com/256/4799/4799065.png" alt=""><br>
+        <a href="/user/bloodPressure" style="color:white" class="btn btn-dark btn-outline-warning">Blood Pressure</a>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <!-- https://cdn-icons-png.flaticon.com/512/4807/4807695.png -->
+      <div class="calcuteors">
+        <h4>Submit Health Data</h4>
+        <img src=" https://cdn-icons-png.flaticon.com/256/4807/4807695.png" alt=""><br>
+        <a href="/user/takeHealthData" style="color:white" class="btn btn-dark btn-outline-warning" type="button">
+          <%if(locals.user && locals.user.medicalHistroy==false){%>Create<%}else{%>Update<%}%>
+        </a>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-6">
-      <p id="BMIScore">
-        <%=BMI%>
-      </p>
-      <a href="/user/BMICalculator" class="btn btn-outline-warning">BMI Calculator</a>
-    </div>
-    <div class="col-6">
-      <a href="/user/bloodPressure" class="btn btn-outline-warning">Blood Pressure</a>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-6">
-      <!-- <input value="<%=healthScore%>" type="hidden"> -->
-      <p id="healthScore">
-        <%=healthScore%>
-      </p>
-      <a href="/user/takeHealthData" class="btn btn-outline-warning">
-        <%if(locals.user && locals.user.medicalHistroy==false){%>Create<%}else{%>Update<%}%>
-      </a>
-    </div>
-    <div class="col-6">
-      
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-6">
-      11
-    </div>
-    <div class="col-6">
-      22
-    </div>
-  </div>
-  
+</div>
+
 
 </div>
 <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
@@ -54,6 +66,6 @@
 <script src="/js/BMICalculator.js"></script>
 
 <script>
-  BMIChart(<%=BMI%>);
-  userHealthChart(<%=healthScore%>);
+  BMIChart(<%=BMI %>);
+  userHealthChart(<%=healthScore %>);
 </script>

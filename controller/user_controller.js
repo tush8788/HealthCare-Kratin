@@ -1,15 +1,17 @@
 const UserDB = require('../model/user');
 const HealthDB = require('../model/healthRecord');
 const FullHealthScore = require('../score/FullHealthScore');
+const bloodPressureCal = require('../score/BloodPressureCalculetor'); 
 
 // dashboard
 module.exports.dashboard= async function(req,res){
     let score={overallScore:0,bmi:0};
-    
+    let BloodReport=null;
     if(req.user.medicalHistroy==true){ 
         let healthR = await HealthDB.findOne({user:req.user.id});
         if(healthR){
            score=FullHealthScore.checkScore(healthR);
+            BloodReport = bloodPressureCal.BloodPressure(healthR.systolicPressure,healthR.diastolicPressure);
 
         //    console.log(score);
         }
@@ -19,7 +21,8 @@ module.exports.dashboard= async function(req,res){
     return res.render('./user/dashboard',{
         title:"Dashboard",
         healthScore:score.overallScore,
-        BMI:score.bmi
+        BMI:score.bmi,
+        BloodReport:BloodReport
     })
 }
 
