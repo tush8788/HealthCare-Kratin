@@ -53,36 +53,36 @@ Creating web application to help peoples to track  health records , BMI and Bloo
 
 2. Sign In Page 
 
-![plot](/screenshort/signin.png)
+![plot](./assets/screenshort/signin.png)
 
 3. Sign Up Page
 
-![plot](/screenshort/signup.png)
+![plot](./assets/screenshort/signup.png)
 
 4. Admin Dashboard
 
- ![plot](/screenshort/adminDashboard.png)
+ ![plot](./assets/screenshort/adminDashboard.png)
 
 5. Admin user View 
 
-![plot](/screenshort/adminViewUser.png)
+![plot](./assets/screenshort/adminViewUser.png)
 
 6. User Dashboard
 
-![plot](/screenshort/userDashboard.png)
+![plot](./assets/screenshort/userDashboard.png)
 
-![plot](/screenshort/userDashboard1.png)
+![plot](./assets/screenshort/userDashboard1.png)
 
-![plot](/screenshort/userDashboard2.png)
+![plot](./assets/screenshort/userDashboard2.png)
 
 7. Calculate Blood Pressure
 
-![plot](/screenshort/bloodpressure.png)
+![plot](./assets/screenshort/bloodpressure.png)
 
 8. Calculate BMI
 
-![plot](/screenshort/BMI.png)
+![plot](./assets/screenshort/BMI.png)
 
 9. user Data
 
-![plot](/screenshort/create.png)
+![plot](./assets/screenshort/create.png)
