@@ -16,7 +16,4 @@ router.get('/dashboard',passport.checkAuthentication,passport.isAdminOrNot,admin
 
 //delete user
 router.get('/userDelete/:id',passport.checkAuthentication,passport.isAdminOrNot,adminController.deleteUser);
-
-//view user 
-router.get('/userView/:id',passport.checkAuthentication,passport.isAdminOrNot,adminController.viewUser)
 module.exports = router;
