@@ -1,25 +1,41 @@
+<link rel="stylesheet" href="/css/bloodPressureCal.css">
 <div class="container">
     <div class="row">
-        <div class="col-6">
-            
-        </div>
-        <div class="col-6">
-            <div class="BMI-Cal">
-                <form action="" id="BMIContainer" method="post">
-                    <input type="text" name="height" placeholder="Hight in Meter" required><br>
-                    <input type="text" name="weight" placeholder="weight" required><br>
-                    <button type="submit">submit</button>
+        <div class="col-sm-6 ">
+            <div class="form-container">
+                <center>
+                    <h4><b>BMI Calculator</b></h4>
+                </center>
+                <form action="" id="BMIContainer" method="get">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Height</label>
+                        <input type="text" placeholder="Height In Meter" name="height" class="form-control" required>
+                        <div id="emailHelp" class="form-text">mmHg</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Weight</label>
+                        <input ype="text" name="weight" placeholder="Weight In KG" class="form-control" required>
+                        <div id="emailHelp" class="form-text">mmHg</div>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-dark " type="submit">Button</button>
+                    </div>
                 </form>
             </div>
-            <div id="result-list">
-               
+        </div>
+
+        <div class="col-sm-6">
+            <div class="calcuteors">
+                <center>
+                    <div id='myBMI'><a class="zc-ref" href="https://www.zingchart.com/"></a>
+                        <center>
+                            <h3>BMI Score</h3>
+                        </center>
+                    </div>
+                </center>
             </div>
-            <div id='myBMI'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a>
-                <center><h3>BMI Score</h3></center>
-            </div> 
         </div>
     </div>
 </div>
 <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
-<script src="/js/userHealthScoreChart.js"></script>
 <script src="/js/BMICalculator.js"></script>

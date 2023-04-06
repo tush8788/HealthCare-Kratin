@@ -1,126 +1,171 @@
+<link rel="stylesheet" href="/css/fullHealthReport.css">
+
 <div class="container">
-    <div class="row">
-        <div class="col-12">
-            <div class="form-container">
-                <% if (healthData==null){%>
-                <form action="<%=url%>" method="post" class="row g-3">
-                    <div class="col-md-6">
-                      <label for="inputEmail4" class="form-label">Name</label>
-                      <input type="name" name="name" class="form-control" id="inputEmail4" required>
-                    </div>
-                    <div class="col-md-6">
-                      <label for="inputPassword4" class="form-label">Weight</label>
-                      <input type="number" step="any" name="weight" class="form-control" id="inputPassword4" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputEmail4" class="form-label">Systolic Pressure</label>
-                        <input type="number" name="systolicPressure" min="30" step="any" class="form-control" id="inputEmail4" required>
-                      </div>
-                      <div class="col-md-6">
-                        <label for="inputPassword4" class="form-label">Diastolic Pressure</label>
-                        <input type="number" min="30" name="diastolicPressure" step="any" name="weight" class="form-control" id="inputPassword4" required>
-                      </div>
-                    <div class="col-6">
-                        <label for="customRange2" class="form-label">Alcohol Rating</label>
-                        <input type="range" name="alcohol" value="0" oninput="this.nextElementSibling.value = this.value" class="form-range" min="0" max="10" id="customRange2">
-                        <output>0</output>
-                    </div>
-                    <div class="col-6">
-                        <label for="customRange2" class="form-label">Smoking Rating</label>
-                        <input type="range" value="0" name="smoking" oninput="this.nextElementSibling.value = this.value" class="form-range" min="0" max="10" id="customRange2">
-                        <output>0</output>
-                   </div>
-                   <div class="col-6">
-                    <label for="customRange2" class="form-label">Exercise Rating</label>
-                    <input type="range" name="exercise" value="0" oninput="this.nextElementSibling.value = this.value" class="form-range" min="0" max="10" id="customRange2">
-                    <output>0</output>
-                </div>
-                <div class="col-6">
-                    <label for="customRange2" class="form-label">Sleep Rating</label>
-                    <input type="range" value="0" name="sleep" oninput="this.nextElementSibling.value = this.value" class="form-range" min="0" max="10" id="customRange2">
-                    <output>0</output>
-               </div>
-                    <div class="col-md-6">
-                      <label for="inputCity" class="form-label">Height</label>
-                      <input type="number" placeholder="Height In Meter" step="any" name="height" class="form-control" id="inputCity">
-                    </div>
-                    <div class="col-md-4">
-                      <label for="inputState" class="form-label">Gender</label>
-                      <select id="inputState" name="gender" class="form-select">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                      </select>
-                    </div>
-                    <div class="col-md-2">
-                      <label for="inputZip" class="form-label">Birth date</label>
-                      <input type="date" name="birthDate" class="form-control" id="inputZip" required>
-                    </div>
-                    <div class="col-12">
-                      <button type="submit" class="btn btn-primary"><%=btn%></button>
-                    </div>
-                    <input type="hidden" name="user" value="<%=locals.user.id%>" required>
-                  </form>
-                <%}else{%>
-                    <form action="<%=url%>/<%=healthData._id%>" method="post" class="row g-3">
-                        <div class="col-md-6">
-                          <label for="inputEmail4" class="form-label">Name</label>
-                          <input type="name" name="name" value="<%=healthData.name%>" class="form-control" id="inputEmail4" required>
-                        </div>
-                        <div class="col-md-6">
-                          <label for="inputPassword4" class="form-label">Weight</label>
-                          <input type="number" step="any" value="<%=healthData.weight%>" name="weight" class="form-control" id="inputPassword4">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="inputEmail4" class="form-label">systolicPressure</label>
-                            <input type="number" value="<%=healthData.systolicPressure%>" name="systolicPressure" min="30" step="any" class="form-control" id="inputEmail4" required>
-                          </div>
-                          <div class="col-md-6">
-                            <label for="inputPassword4" class="form-label">diastolicPressure</label>
-                            <input type="number" min="30" value="<%=healthData.diastolicPressure%>"  step="any" name="diastolicPressure" class="form-control" id="inputPassword4">
-                          </div>
-                        <div class="col-6">
-                            <label for="customRange2" class="form-label">Alcohol Rating</label>
-                            <input type="range" name="alcohol" value="<%=healthData.alcohol%>" oninput="this.nextElementSibling.value = this.value" class="form-range" min="0" max="10" id="customRange2">
-                            <output><%=healthData.alcohol%></output>
-                        </div>
-                        <div class="col-6">
-                            <label for="customRange2" class="form-label">Smoking Rating</label>
-                            <input type="range" value="<%=healthData.smoking%>" name="smoking" oninput="this.nextElementSibling.value = this.value" class="form-range" min="0" max="10" id="customRange2">
-                            <output><%=healthData.smoking%></output>
-                       </div>
-                       <div class="col-6">
-                        <label for="customRange2" class="form-label">Exercise Rating</label>
-                        <input type="range" name="exercise" value="<%=healthData.smoking%>" oninput="this.nextElementSibling.value = this.value" class="form-range" min="0" max="10" id="customRange2">
-                        <output><%=healthData.smoking%></output>
-                    </div>
-                    <div class="col-6">
-                        <label for="customRange2" class="form-label">Sleep Rating</label>
-                        <input type="range" name="sleep" value="<%=healthData.sleep%>" oninput="this.nextElementSibling.value = this.value" class="form-range" min="0" max="10" id="customRange2">
-                        <output><%=healthData.sleep%></output>
-                   </div>
-                        <div class="col-md-6">
-                          <label for="inputCity" class="form-label">Height</label>
-                          <input type="number" step="any" value="<%=healthData.height%>" name="height" class="form-control" id="inputCity">
-                        </div>
-                        <div class="col-md-4">
-                          <label for="inputState" class="form-label">Gender</label>
-                          <select id="inputState" name="gender" class="form-select">
-                            <option value="<%=healthData.gender%>"><%=healthData.gender%></option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                          </select>
-                        </div>
-                        <div class="col-md-2">
-                          <label for="inputZip" class="form-label">Birth date</label>
-                          <input type="date" value="<%=healthData.birthDate.toISOString().substr(0, 10)%>" name="birthDate" class="form-control" id="inputZip" required>
-                        </div>
-                        <input type="hidden" name="user" value="<%=locals.user.id%>" required>
-                        <div class="col-12">
-                          <button type="submit" class="btn btn-primary"><%=btn%></button>
-                        </div>
-                      </form>
-                <%}%>
+  <div class="row">
+    <div class="col-12">
+      <div class="form-container">
+        <% if (healthData==null){%>
+          <center><h4>Create Data</h4></center>
+          <form action="<%=url%>" method="post" class="row g-3">
+            <div class="col-md-6">
+              <label for="inputEmail4" class="form-label">Name</label>
+              <input type="name" name="name" class="form-control" id="inputEmail4" required>
             </div>
-        </div>
+            <div class="col-md-6">
+              <label for="inputPassword4" class="form-label">Weight</label>
+              <input type="number" step="any" name="weight" class="form-control" id="inputPassword4" required>
+            </div>
+            <div class="col-md-6">
+              <label for="inputEmail4" class="form-label">Systolic Pressure</label>
+              <input type="number" name="systolicPressure" min="30" step="any" class="form-control" id="inputEmail4"
+                required>
+            </div>
+            <div class="col-md-6">
+              <label for="inputPassword4" class="form-label">Diastolic Pressure</label>
+              <input type="number" min="30" name="diastolicPressure" step="any" name="weight" class="form-control"
+                id="inputPassword4" required>
+            </div>
+            <div class="col-6">
+              <label for="customRange2" class="form-label">Alcohol Rating</label>
+              <input type="range" name="alcohol" value="0" oninput="this.nextElementSibling.value = this.value"
+                class="form-range" min="0" max="10" id="customRange2">
+              <output>0</output>
+            </div>
+            <div class="col-6">
+              <label for="customRange2" class="form-label">Smoking Rating</label>
+              <input type="range" value="0" name="smoking" oninput="this.nextElementSibling.value = this.value"
+                class="form-range" min="0" max="10" id="customRange2">
+              <output>0</output>
+            </div>
+            <div class="col-6">
+              <label for="customRange2" class="form-label">Exercise Rating</label>
+              <input type="range" name="exercise" value="0" oninput="this.nextElementSibling.value = this.value"
+                class="form-range" min="0" max="10" id="customRange2">
+              <output>0</output>
+            </div>
+            <div class="col-6">
+              <label for="customRange2" class="form-label">Sleep Rating</label>
+              <input type="range" value="0" name="sleep" oninput="this.nextElementSibling.value = this.value"
+                class="form-range" min="0" max="10" id="customRange2">
+              <output>0</output>
+            </div>
+            <div class="col-md-6">
+              <label for="inputCity" class="form-label">Height</label>
+              <input type="number" placeholder="Height In Meter" step="any" name="height" class="form-control"
+                id="inputCity">
+            </div>
+            <div class="col-md-4">
+              <label for="inputState" class="form-label">Gender</label>
+              <select id="inputState" name="gender" class="form-select">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label for="inputZip" class="form-label">Birth date</label>
+              <input type="date" name="birthDate" class="form-control" id="inputZip" required>
+            </div>
+            <div class="col-12">
+              <center>
+                <button type="submit" class="btn btn-dark">
+                  <%=btn%>
+                </button>
+              </center>
+            </div>
+            <input type="hidden" name="user" value="<%=locals.user.id%>" required>
+          </form>
+          <%}else{%>
+          <center><h4>Update Data</h4></center>
+            <form action="<%=url%>/<%=healthData._id%>" method="post" class="row g-3">
+              <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Name</label>
+                <input type="name" name="name" value="<%=healthData.name%>" class="form-control" id="inputEmail4"
+                  required>
+              </div>
+              <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Weight</label>
+                <input type="number" step="any" value="<%=healthData.weight%>" name="weight" class="form-control"
+                  id="inputPassword4">
+              </div>
+              <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">systolicPressure</label>
+                <input type="number" value="<%=healthData.systolicPressure%>" name="systolicPressure" min="30"
+                  step="any" class="form-control" id="inputEmail4" required>
+              </div>
+              <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">diastolicPressure</label>
+                <input type="number" min="30" value="<%=healthData.diastolicPressure%>" step="any"
+                  name="diastolicPressure" class="form-control" id="inputPassword4">
+              </div>
+              <div class="col-6">
+                <label for="customRange2" class="form-label">Alcohol Rating</label>
+                <input type="range" name="alcohol" value="<%=healthData.alcohol%>"
+                  oninput="this.nextElementSibling.value = this.value" class="form-range" min="0" max="10"
+                  id="customRange2">
+                <output>
+                  <%=healthData.alcohol%>
+                </output>
+              </div>
+              <div class="col-6">
+                <label for="customRange2" class="form-label">Smoking Rating</label>
+                <input type="range" value="<%=healthData.smoking%>" name="smoking"
+                  oninput="this.nextElementSibling.value = this.value" class="form-range" min="0" max="10"
+                  id="customRange2">
+                <output>
+                  <%=healthData.smoking%>
+                </output>
+              </div>
+              <div class="col-6">
+                <label for="customRange2" class="form-label">Exercise Rating</label>
+                <input type="range" name="exercise" value="<%=healthData.smoking%>"
+                  oninput="this.nextElementSibling.value = this.value" class="form-range" min="0" max="10"
+                  id="customRange2">
+                <output>
+                  <%=healthData.smoking%>
+                </output>
+              </div>
+              <div class="col-6">
+                <label for="customRange2" class="form-label">Sleep Rating</label>
+                <input type="range" name="sleep" value="<%=healthData.sleep%>"
+                  oninput="this.nextElementSibling.value = this.value" class="form-range" min="0" max="10"
+                  id="customRange2">
+                <output>
+                  <%=healthData.sleep%>
+                </output>
+              </div>
+              <div class="col-md-6">
+                <label for="inputCity" class="form-label">Height</label>
+                <input type="number" step="any" value="<%=healthData.height%>" name="height" class="form-control"
+                  id="inputCity">
+              </div>
+              <div class="col-md-4">
+                <label for="inputState" class="form-label">Gender</label>
+                <select id="inputState" name="gender" class="form-select">
+                  <option value="<%=healthData.gender%>">
+                    <%=healthData.gender%>
+                  </option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+              <div class="col-md-2">
+                <label for="inputZip" class="form-label">Birth date</label>
+                <input type="date" value="<%=healthData.birthDate.toISOString().substr(0, 10)%>" name="birthDate"
+                  class="form-control" id="inputZip" required>
+              </div>
+              <input type="hidden" name="user" value="<%=locals.user.id%>" required>
+              <div class="col-12">
+                <center>
+                  <button type="submit" class="btn btn-dark ">
+                    <%=btn%>
+                  </button>
+                </center>
+              </div>
+            </form>
+            <%}%>
+      </div>
     </div>
+    <br>
+  </div>
 </div>
+<br>

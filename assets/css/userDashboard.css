@@ -13,7 +13,9 @@
 }
 
 .chart-container{
+  background-color: #fff;
   margin-top: 10px;
+  border-radius: 20px;
   box-shadow: 0px 0px 14px 6px lightgray;
   display: flex;
   flex-direction: column;
@@ -26,6 +28,8 @@
 }
 
 .calcuteors{
+  background-color: #fff;
+  border-radius: 20px;
   padding: 15px;
   margin-top: 30px;
   box-shadow: 0px 0px 14px 6px lightgray;

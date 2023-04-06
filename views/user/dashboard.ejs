@@ -26,7 +26,7 @@
       <div class="calcuteors">
         <h4>Blood Pressure Report</h4>
         <img src="https://cdn-icons-png.flaticon.com/256/3063/3063051.png" alt=""><br>
-        <h4 style="color:fuchsia" ><b><%=BloodReport%></b></h4>
+        <h4 style="color:fuchsia" ><b><% if(locals.user.medicalHistroy){%><%=BloodReport%><%}else{%>Not Found<%}%></b></h4>
       </div>
     </div>
 
