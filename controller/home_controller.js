@@ -69,18 +69,24 @@ module.exports.create=async function(req,res){
         if(!user){
             user = userDB.create(req.body);
             if(req.body.isAdmin=="true"){
+                req.flash('success','admin create successfully..!');
                 return res.redirect('/admin/signin');
+                
             }
             else{
+                req.flash('success','user create successfully..!');
                 return res.redirect('/user/signin');
             }
         }
 
-        console.log("user already exist");
+        
+        
         if(req.body.isAdmin=="true"){
+            req.flash('error','user already exist..!');
             return res.redirect('/admin/signin');
         }
         else{
+            req.flash('error','user already exist..!');
             return res.redirect('/user/signin');
         }
     }
@@ -92,6 +98,7 @@ module.exports.create=async function(req,res){
 
 //create session of  admin and user
 module.exports.createSession=function(req,res){
+    req.flash('success','Successfully Signin..!');
     if(req.body.isAdmin=="true"){
         return res.redirect('/admin/dashboard');
     }
@@ -106,6 +113,7 @@ module.exports.signout = function(req,res){
         if(err){
             console.log(err);
         }
+        req.flash('success','Successfully Signout..!');
         return res.redirect('/');
     })
 }

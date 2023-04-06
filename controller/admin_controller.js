@@ -21,10 +21,12 @@ module.exports.deleteUser = async function(req,res){
    try{
       // console.log(req.params)
       await UserDB.findByIdAndDelete(req.params.id);
+      req.flash('success','Delete User Successfully..!');
       return res.redirect('back');
    }
    catch(err){
       console.log(err);
+      req.flash('error','Internal Error..!');
       return res.redirect('back');
    }
 }

@@ -12,12 +12,9 @@ module.exports.dashboard= async function(req,res){
         if(healthR){
            score=FullHealthScore.checkScore(healthR);
             BloodReport = bloodPressureCal.BloodPressure(healthR.systolicPressure,healthR.diastolicPressure);
-
-        //    console.log(score);
         }
     }
-    // console.log(scoreFind.checkScore(12));
-
+   
     return res.render('./user/dashboard',{
         title:"Dashboard",
         healthScore:score.overallScore,
@@ -68,16 +65,16 @@ module.exports.fullHealthData = async function(req,res){
     }
 }
 
+//create new health recored
 module.exports.createHealthRecord = async function(req,res){
     try{
-        // console.log(req.body);
         if(req.user.id == req.body.user){
             let newHealthRecord = await HealthDB.create(req.body);
-            // if(newHealthRecord){
-            //     await UserDB.findByIdAndUpdate(req.user.id,{medicalHistroy:true});
-            // }
+            await UserDB.findByIdAndUpdate(req.user.id,{medicalHistroy:true})
+            req.flash('success','Data Insert Successfully..!');
+            return res.redirect('/user/dashboard');
         }
-        
+        req.flash('error','User Not Match Successfully..!');
         return res.redirect('/user/dashboard');
     }
     catch(err){
