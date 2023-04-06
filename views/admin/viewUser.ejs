@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="user-container">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <h4>Name: <%=healthRecord.name%></h4>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Gender: <%=healthRecord.gender%></h4>
+                    </div>
+                    <div class="col-6">
+                      <h4>Birth Date : <%=(healthRecord.birthDate).toISOString().substr(0, 10)%></h4>
+                    </div>
+                    <div class="col-6">
+                        <h4>Alcohol Rating : <%=healthRecord.alcohol%></h4>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Smoking Rating : <%=healthRecord.smoking%></h4>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Height In Meter : <%=healthRecord.height%></h4>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Weight in Kg: <%=healthRecord.weight%></h4>
+                    </div>
+                    <div class="col-6">
+                        <h4>Exercise Rating: <%=healthRecord.exercise%></h4>
+                    </div>
+                    <div class="col-6">
+                        <h4>Systolic Pressure: <%=healthRecord.systolicPressure%></h4>
+                    </div>
+                    <div class="col-6">
+                        <h4>Diastolic Pressure: <%=healthRecord.diastolicPressure%></h4>
+                    </div>
+                    <div class="col-6">
+                        <h4>Sleep Rating: <%=healthRecord.sleep%></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

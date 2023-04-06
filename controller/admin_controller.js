@@ -28,3 +28,20 @@ module.exports.deleteUser = async function(req,res){
       return res.redirect('back');
    }
 }
+
+//view user 
+module.exports.viewUser=async function(req,res){
+   try{
+      let healthRecord = await HealthDB.findOne({user:req.params.id});
+      if(healthRecord != null){
+         return res.render('./admin/viewUser',{
+            title:"View User",
+            healthRecord:healthRecord
+         })
+      }
+   }
+   catch(err){
+      console.log(err);
+      return res.redirect('back');
+   }
+}
