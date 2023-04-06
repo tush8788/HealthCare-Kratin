@@ -6,7 +6,9 @@ router.get('/',homeController.home);
 
 //bmi calculetor
 router.post('/bmicalculator',homeController.BMICal);
-
+//blood pressure calculetor
+router.post('/bloodPressure',homeController.bloodCal);
+//signout
 router.get('/signout',homeController.signout);
 // admin
 router.use('/admin',require('./admin'));

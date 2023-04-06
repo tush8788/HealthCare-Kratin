@@ -2,8 +2,6 @@
 
 $('#BMIContainer').submit((e) => {
     e.preventDefault();
-    // alert('click');
-    // let newArr = [], arr = $('#BMIContainer').serializeArray();
 
     $.ajax({
         type:'post',
@@ -22,18 +20,6 @@ $('#BMIContainer').submit((e) => {
     function showInPage(data){
         $('#result-list').html(`<p>BMI is ${data.toFixed(2)}</p><p id="BMIScore">${data.toFixed(2)}</p>`)
     }
-
-    // arr.forEach(element => {
-    //     console.log(element)
-    //     newArr.push(element.value);
-    // });
-    // let h2 = newArr[0] * newArr[0];
-    // let BMI = newArr[1] / h2
-    // // console.log("BMI : ",newArr[1]/h2);
-
-    // $('#result-list').html(`<p>BMI is ${BMI.toFixed(2)}</p><p id="BMIScore">${BMI.toFixed(2)}</p>`)
-
-    // console.log(newArr);
 })
 
 var output = parseFloat($('#BMIScore').text()).toFixed(2)*1;
