@@ -4,6 +4,9 @@ const homeController = require('../controller/home_controller');
 
 router.get('/',homeController.home);
 
+//bmi calculetor
+router.post('/bmicalculator',homeController.BMICal);
+
 router.get('/signout',homeController.signout);
 // admin
 router.use('/admin',require('./admin'));

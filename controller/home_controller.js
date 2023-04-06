@@ -1,5 +1,5 @@
 const userDB = require('../model/user');
-
+const BmiCalculator = require('../score/BMICalculetor');
 // home page
 module.exports.home = function(req,res){
     return res.render('home',{
@@ -90,4 +90,17 @@ module.exports.signout = function(req,res){
         }
         return res.redirect('/');
     })
+}
+
+//BMI calculetor
+module.exports.BMICal=function(req,res){
+    console.log(req.body);
+    let bmi =BmiCalculator.BMI(req.body.height,req.body.weight);
+    console.log(bmi);
+    if(req.xhr){
+        return res.status(200).json({
+            BMI:bmi
+        })
+    }
+    return res.redirect(back);
 }

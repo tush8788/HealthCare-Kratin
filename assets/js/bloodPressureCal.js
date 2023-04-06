@@ -2,6 +2,7 @@
 
 $('#bloodPressure').submit((e) => {
     e.preventDefault()
+    
     let arr = $('#bloodPressure').serializeArray();
     let newArry=[];
     // let sum = 0;

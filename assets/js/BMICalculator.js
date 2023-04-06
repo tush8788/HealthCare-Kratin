@@ -1,22 +1,42 @@
+//chart
+
 $('#BMIContainer').submit((e) => {
     e.preventDefault();
     // alert('click');
-    let newArr = [], arr = $('#BMIContainer').serializeArray();
+    // let newArr = [], arr = $('#BMIContainer').serializeArray();
 
-    arr.forEach(element => {
-        console.log(element)
-        newArr.push(element.value);
-    });
-    let h2 = newArr[0] * newArr[0];
-    let BMI = newArr[1] / h2
-    // console.log("BMI : ",newArr[1]/h2);
+    $.ajax({
+        type:'post',
+        url:'/bmicalculator',
+        data:$('#BMIContainer').serialize(),
+        success:function(data){
+            console.log(data);
+            output=data;
+            showInPage(data.BMI);
+        },
+        error:function(err){
+            console.log(err);
+        }
+    })
 
-    $('#result-list').html(`<p>BMI is ${BMI.toFixed(2)}</p><p id="BMIScore">${BMI.toFixed(2)}</p>`)
+    function showInPage(data){
+        $('#result-list').html(`<p>BMI is ${data.toFixed(2)}</p><p id="BMIScore">${data.toFixed(2)}</p>`)
+    }
+
+    // arr.forEach(element => {
+    //     console.log(element)
+    //     newArr.push(element.value);
+    // });
+    // let h2 = newArr[0] * newArr[0];
+    // let BMI = newArr[1] / h2
+    // // console.log("BMI : ",newArr[1]/h2);
+
+    // $('#result-list').html(`<p>BMI is ${BMI.toFixed(2)}</p><p id="BMIScore">${BMI.toFixed(2)}</p>`)
 
     // console.log(newArr);
 })
 
-//chart
+var output = parseFloat($('#BMIScore').text()).toFixed(2)*1;
 
 {window.feed = function (callback) {
     var tick = {};
@@ -115,7 +135,7 @@ var myConfig = {
     series: [
         {
             
-            values: [parseFloat($('#BMIScore').text()).toFixed(2)*1], // starting value
+            values: [output], // starting value
             backgroundColor: 'black',
             indicator: [10, 10, 10, 10, 0.75],
             animation: {

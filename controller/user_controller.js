@@ -1,6 +1,6 @@
 const UserDB = require('../model/user');
 const HealthDB = require('../model/healthRecord');
-const scoreFind = require('../score/chechScore');
+const FullHealthScore = require('../score/FullHealthScore');
 
 // dashboard
 module.exports.dashboard= async function(req,res){
@@ -8,7 +8,7 @@ module.exports.dashboard= async function(req,res){
     if(req.user.medicalHistroy==true){ 
         let healthR = await HealthDB.findOne({user:req.user.id});
         if(healthR){
-           score=scoreFind.checkScore(healthR);
+           score=FullHealthScore.checkScore(healthR);
 
         //    console.log(score);
         }
