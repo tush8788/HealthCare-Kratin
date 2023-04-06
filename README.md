@@ -49,7 +49,7 @@ Creating web application to help peoples to track  health records , BMI and Bloo
 
 1. Home Page
 
-![plot](./screenshort/homePage.png)
+![plot](.assets/screenshort/homePage.png)
 
 2. Sign In Page 
 
