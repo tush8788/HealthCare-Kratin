@@ -1,0 +1,14 @@
+.container{
+    width: 100%;
+    height: 100%;
+  }
+  
+  .row{
+    margin-top: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .col-sm-12{
+    background-color: white;
+  }

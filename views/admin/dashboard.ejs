@@ -1,60 +1,53 @@
-<h2>dashboard</h2>
+<link rel="stylesheet" href="/css/adminDashboard.css">
 
 <div class="container">
-    <div class="row">
-        <div class="col-6">
-          <center>User</center>
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Email</th>
-                <th scope="col">view</th>
-                <th scope="col">delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% for(let user of users){%>
-                <% if(user.isAdmin==false){%>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td><%=user.email%></td>
-                    <%=user.medicalHistroy%>
+  <div class="row">
+    <div class="col-sm-12">
+      <center><h4>Users</h4></center>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Email</th>
+            <th scope="col">view</th>
+            <th scope="col">delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%let count=1;%>
+            <% for(let user of users){%>
+              <% if(user.isAdmin==false){%>
+                <tr>
+                  <th scope="row">
+                    <%=count%>
+                  </th>
+                  <td>
+                    <%=user.email%>
+                  </td>
                     <td>
-                    <%if(user.medicalHistroy==true){%>
-                    <a href="/admin/userView/<%=user._id%>">View</a>
-                    <%}%>
+                      <%if(user.medicalHistroy==true){%>
+                        <a href="/admin/userView/<%=user._id%>">View</a>
+                        <%}%>
                     </td>
                     <td><a href="/admin/userDelete/<%=user._id%>">delete</a></td>
-                  </tr>  
-                  <%}%>
+                </tr>
+                <%count++}%>
               <%}%>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-6">
-            
-        </div>
+        </tbody>
+      </table>
     </div>
-    <div class="row">
-        <div class="col-6">
+    <div class="col-6">
 
-        </div>
-        <div class="col-6">
-
-        </div>
     </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+
+    </div>
+    <div class="col-6">
+
+    </div>
+  </div>
 </div>
 
 <!-- <canvas id="myChart" style="width:100%;max-width:700px"></canvas> -->
@@ -111,4 +104,3 @@ if (overallScore >= 0.8) {
 console.log(`Overall Health Score: ${overallScore}`);
 console.log(`Health Level: ${healthLevel}`);
 </script> -->
-
