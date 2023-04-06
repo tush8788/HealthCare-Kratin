@@ -4,6 +4,9 @@ const BloodPressureCalculator = require('../score/BloodPressureCalculetor');
 
 // home page
 module.exports.home = function(req,res){
+    if(req.isAuthenticated()){
+        return res.redirect('back');
+    }
     return res.render('home',{
         title:"Home"
     })
@@ -11,6 +14,9 @@ module.exports.home = function(req,res){
 
 // admin sign in page
 module.exports.signInPageAdmin=function(req,res){
+    if(req.isAuthenticated()){
+        return res.redirect('/admin/dashboard');
+    }
     return res.render('signin',{
         title:"AdminSignIn",
         isAdmin:true,
@@ -20,6 +26,10 @@ module.exports.signInPageAdmin=function(req,res){
 
 //admin sign up page
 module.exports.signUpPageAdmin=function(req,res){
+    if(req.isAuthenticated()){
+        return res.redirect('/admin/dashboard');
+    }
+
     return res.render('signup',{
         title:"AdminSignUp",
         isAdmin:true,
@@ -29,6 +39,9 @@ module.exports.signUpPageAdmin=function(req,res){
 
 // user sign in page
 module.exports.signInPageUser=function(req,res){
+    if(req.isAuthenticated()){
+        return res.redirect('/user/dashboard');
+    }
     return res.render('signin',{
         title:"UserSignIn",
         isAdmin:false,
@@ -38,6 +51,9 @@ module.exports.signInPageUser=function(req,res){
 
 //user sign up page
 module.exports.signUpPageUser=function(req,res){
+    if(req.isAuthenticated()){
+        return res.redirect('/user/dashboard');
+    }
     return res.render('signup',{
         title:"UserSignUp",
         isAdmin:false,
