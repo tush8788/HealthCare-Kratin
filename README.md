@@ -81,7 +81,7 @@ Creating web application to help peoples to track  health records , BMI and Bloo
 
 8. Calculate BMI
 
-![plot](./assets/screenshort/BMI.png)
+![plot](./assets/screenshort/BMI .png)
 
 9. user Data
 
