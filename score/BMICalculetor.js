@@ -1,3 +1,4 @@
+// this function give BMI report
 module.exports.BMI=function(height,weight){
     let h2=parseFloat(height)*parseFloat(height);
     let bmi=parseFloat(weight)/h2;

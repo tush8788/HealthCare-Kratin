@@ -3,6 +3,7 @@
 
 <div class="container">
   <div class="row">
+    <!-- health score -->
     <div class="col-6">
       <div class="chart-container">
         <div id='myChart'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a>
@@ -12,6 +13,7 @@
         </div>
       </div>
     </div>
+    <!-- BMI Score -->
     <div class="col-6">
       <div class="chart-container">
         <div id='myBMI'><a class="zc-ref" href="https://www.zingchart.com/">Charts by ZingChart</a>
@@ -21,7 +23,7 @@
         </div>
       </div>
     </div>
-    
+    <!-- Blood report -->
     <div class="col-6">
       <div class="calcuteors">
         <h4>Blood Pressure Report</h4>
@@ -29,7 +31,7 @@
         <h4 style="color:fuchsia" ><b><% if(locals.user.medicalHistroy){%><%=BloodReport%><%}else{%>Not Found<%}%></b></h4>
       </div>
     </div>
-
+    <!-- BMI calculetor -->
     <div class="col-6">
       <div class="calcuteors">
         <h4>BMI Calculator</h4>
@@ -37,7 +39,7 @@
         <a href="/user/BMICalculator" style="color:white" class="btn btn-dark btn-outline-warning">BMI Calculator</a>
       </div>
     </div>
-
+    <!-- Blood pressure calculetor -->
     <div class="col-6">
       <div class="calcuteors">
         <h4>Blood Pressure Calculator</h4>
@@ -45,9 +47,8 @@
         <a href="/user/bloodPressure" style="color:white" class="btn btn-dark btn-outline-warning">Blood Pressure</a>
       </div>
     </div>
-
+    <!-- submit health data -->
     <div class="col-6">
-      <!-- https://cdn-icons-png.flaticon.com/512/4807/4807695.png -->
       <div class="calcuteors">
         <h4>Submit Health Data</h4>
         <img src=" https://cdn-icons-png.flaticon.com/256/4807/4807695.png" alt=""><br>
@@ -58,14 +59,16 @@
     </div>
   </div>
 </div>
-
-
-</div>
+<!-- zing chart cdn for show charts  -->
 <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+<!-- show userhealth chart -->
 <script src="/js/userHealthScoreChart.js"></script>
+<!-- show BMI chart -->
 <script src="/js/BMICalculator.js"></script>
-
+<!-- call functions -->
 <script>
+  // call BMI
   BMIChart(<%=BMI %>);
+  // call health chart
   userHealthChart(<%=healthScore %>);
 </script>

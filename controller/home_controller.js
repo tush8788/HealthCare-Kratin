@@ -4,6 +4,7 @@ const BloodPressureCalculator = require('../score/BloodPressureCalculetor');
 
 // home page
 module.exports.home = function(req,res){
+    //if any user is login then home page is not visible.
     if(req.isAuthenticated()){
         return res.redirect('back');
     }
@@ -14,6 +15,7 @@ module.exports.home = function(req,res){
 
 // admin sign in page
 module.exports.signInPageAdmin=function(req,res){
+    //if any user is login then signin page is not visible.
     if(req.isAuthenticated()){
         return res.redirect('/admin/dashboard');
     }
@@ -26,6 +28,7 @@ module.exports.signInPageAdmin=function(req,res){
 
 //admin sign up page
 module.exports.signUpPageAdmin=function(req,res){
+    //if any user is login then page is not visible.
     if(req.isAuthenticated()){
         return res.redirect('/admin/dashboard');
     }
@@ -39,6 +42,7 @@ module.exports.signUpPageAdmin=function(req,res){
 
 // user sign in page
 module.exports.signInPageUser=function(req,res){
+    //if any user is login then page is not visible.
     if(req.isAuthenticated()){
         return res.redirect('/user/dashboard');
     }
@@ -51,6 +55,7 @@ module.exports.signInPageUser=function(req,res){
 
 //user sign up page
 module.exports.signUpPageUser=function(req,res){
+    //if any user is login then page is not visible.
     if(req.isAuthenticated()){
         return res.redirect('/user/dashboard');
     }
@@ -64,28 +69,28 @@ module.exports.signUpPageUser=function(req,res){
 //create user and admin
 module.exports.create=async function(req,res){
     try{
+        //first check password and confirm password match or not
         if(req.body.password != req.body.confromPassword){
             req.flash('error',"Password and Confirm Password not match");
             return res.redirect('back');
         }
-
+        //check user already available in DB or not
         let user = await userDB.findOne({email:req.body.email});
-
+        //if user not available in db then create new
         if(!user){
+            //create new user or admin
             user = userDB.create(req.body);
+            //here check create user is normal user or admin and according that redirect signin page
             if(req.body.isAdmin=="true"){
                 req.flash('success','admin create successfully..!');
                 return res.redirect('/admin/signin');
-                
             }
             else{
                 req.flash('success','user create successfully..!');
                 return res.redirect('/user/signin');
             }
         }
-
-        
-        
+        //if user already exist
         if(req.body.isAdmin=="true"){
             req.flash('error','user already exist..!');
             return res.redirect('/admin/signin');
@@ -101,7 +106,7 @@ module.exports.create=async function(req,res){
     }
 }
 
-//create session of  admin and user
+//create session of admin and user
 module.exports.createSession=function(req,res){
     req.flash('success','Successfully Signin..!');
     if(req.body.isAdmin=="true"){
@@ -125,9 +130,9 @@ module.exports.signout = function(req,res){
 
 //BMI calculetor
 module.exports.BMICal=function(req,res){
-    // console.log(req.body);
+    // call BmiCalculator 
     let bmi =BmiCalculator.BMI(req.body.height,req.body.weight);
-    // console.log(bmi);
+    //if ajax req
     if(req.xhr){
         return res.status(200).json({
             BMI:bmi
@@ -138,9 +143,8 @@ module.exports.BMICal=function(req,res){
 
 //blood pressure Calculetor
 module.exports.bloodCal=function(req,res){
-    // console.log(req.body);
+    // call pressure Calculetor
     let BloodPressure = BloodPressureCalculator.BloodPressure(req.body.systolic,req.body.diastolic);
-    // console.log(BloodPressure);
     if(req.xhr){
         return res.status(200).json({
             BloodPressure:BloodPressure

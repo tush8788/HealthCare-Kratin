@@ -4,6 +4,7 @@ const UserDB = require('../model/user');
 //dashboard
 module.exports.dashboard= async function(req,res){
    try{
+      //here finding all users of web app
       let users = await UserDB.find({});
       return res.render('./admin/dashboard',{
          title:"Admin Dashboard",
@@ -19,13 +20,16 @@ module.exports.dashboard= async function(req,res){
 //delete user
 module.exports.deleteUser = async function(req,res){
    try{
-      // console.log(req.params)
+      //find user and delete user form DB
       await UserDB.findByIdAndDelete(req.params.id);
+      // notification 
       req.flash('success','Delete User Successfully..!');
+      
       return res.redirect('back');
    }
    catch(err){
       console.log(err);
+      //notification
       req.flash('error','Internal Error..!');
       return res.redirect('back');
    }
@@ -34,7 +38,9 @@ module.exports.deleteUser = async function(req,res){
 //view user 
 module.exports.viewUser=async function(req,res){
    try{
+      //find health record in HealthDB
       let healthRecord = await HealthDB.findOne({user:req.params.id});
+      //if health record found then 
       if(healthRecord != null){
          return res.render('./admin/viewUser',{
             title:"View User",

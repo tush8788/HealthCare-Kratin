@@ -7,6 +7,7 @@ const bloodPressureCal = require('../score/BloodPressureCalculetor');
 module.exports.dashboard= async function(req,res){
     let score={overallScore:0,bmi:0};
     let BloodReport=null;
+    //if user submited form user data then show or calculte healthscore
     if(req.user.medicalHistroy==true){ 
         let healthR = await HealthDB.findOne({user:req.user.id});
         if(healthR){
@@ -40,8 +41,9 @@ module.exports.BMI = function(req,res){
 //full health data page
 module.exports.fullHealthData = async function(req,res){
     try{
+        //find health data 
         let healthData = await HealthDB.findOne({user:req.user.id});
-        // console.log(healthData==null);
+        //if data is not found then show create data page
         if(healthData==null){
             return res.render('./user/fullHealth',{
                 title:"FUll Health Info",
@@ -51,6 +53,7 @@ module.exports.fullHealthData = async function(req,res){
             });
         }
         else{
+            //if data found then show update page
             return res.render('./user/fullHealth',{
                 title:"FUll Health Info",
                 url:'/user/updateHealthRecord',
@@ -68,7 +71,9 @@ module.exports.fullHealthData = async function(req,res){
 //create new health recored
 module.exports.createHealthRecord = async function(req,res){
     try{
+        //check user match or not 
         if(req.user.id == req.body.user){
+            //if user match then create record and also update user medicalHistory false to true
             let newHealthRecord = await HealthDB.create(req.body);
             await UserDB.findByIdAndUpdate(req.user.id,{medicalHistroy:true})
             req.flash('success','Data Insert Successfully..!');
@@ -83,9 +88,12 @@ module.exports.createHealthRecord = async function(req,res){
     }
 }
 
+//update health record 
 module.exports.updateHealthRecord = async function(req,res){
     try{
+        //check user match or not 
         if(req.body.user == req.user.id){
+            //update full
             let updatedData=await HealthDB.findByIdAndUpdate(req.params.id,req.body);
             if(updatedData){
                 await UserDB.findByIdAndUpdate(req.user.id,{medicalHistroy:true});
@@ -93,8 +101,6 @@ module.exports.updateHealthRecord = async function(req,res){
         }
 
         return res.redirect('/user/dashboard');
-        // console.log(req.params);
-        // console.log(req.body);
     }
     catch(err){
         console.log(err);

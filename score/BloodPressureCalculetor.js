@@ -1,7 +1,7 @@
+// this function create report of blood
 module.exports.BloodPressure=function(systolic,diastolic){
 
     let classification;
-    // console.log(newArry);
     if (systolic<90 && diastolic<60) {
         classification = "Low blood pressure";
     }
