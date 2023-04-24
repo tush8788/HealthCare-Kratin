@@ -40,15 +40,13 @@ Creating web application to help peoples to track  health records , BMI and Bloo
 4. then go localhost:8000
 
 
-## This Site is hosted on Render.com
+## This Site is hosted on Render.com (this site is hosted on free tier thats why its take some time to the load)
 1. Access link "https://healthcare-kratin.onrender.com/"
 
 
 
 ##Screen Short
 
-
-##Screen Short
 
 1. Home Page
 
