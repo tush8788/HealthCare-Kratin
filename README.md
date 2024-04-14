@@ -1,5 +1,5 @@
 # HealthCare Web Application 
-    Creating web application to help peoples to track  health records , BMI and Blood pressure also check healthScore 
+Creating web application to help peoples to track  health records , BMI and Blood pressure also check healthScore 
 
 # Admin Functionality
     1. Sign in and Sign up with email
